@@ -1,8 +1,6 @@
 import MainNews from "@/components/MainNews";
-import Marquee from "@/components/Marquee";
 import MostRead from "@/components/MostRead";
 import NewsCard from "@/components/NewsCard";
-import Image from "next/image";
 
 interface OtherSection {
   curationId:string;
@@ -28,9 +26,8 @@ export default async function Home() {
 
   return (
     <div>
-      <Marquee></Marquee>
 
-      <div className="grid grid-cols-3 container mx-auto mt-5 gap-2">
+      <div className="grid grid-cols-3 mt-5 gap-2">
         {/* News Section*/}
         <div className="col-span-2">
           <MainNews news={mainNews}></MainNews>
