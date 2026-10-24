@@ -1,6 +1,7 @@
 import Image from 'next/image';
 import React from 'react';
 import Navlink from './Navlink';
+import UserInfo from './UserInfo';
 
 const Header = () => {
     const date = new Date().toLocaleDateString('bn-BD', {
@@ -18,12 +19,8 @@ const Header = () => {
                 </div>
             </div>
 
-            <div className='absolute right-0 top-1 flex gap-2 items-center text-sm'>
-                
-                <button className="btn btn-ghost text-neutral-700 transition-colors hover:text-red-700 ">সাইন ইন</button>
-                <button className="btn bg-red-700 px-3 py-1.5 font-semibold text-white transition-colors hover:bg-red-800">সাইন আপ</button>
+            <UserInfo></UserInfo>
 
-            </div>
 
             <Navlink></Navlink>
         </header>
