@@ -20,7 +20,7 @@ const NewsCard = ({ news }: { news: News }) => {
                         height={600}
                         width={600}
                         src={news.imageUrl}
-                        alt={news.imageAlt} />
+                        alt={news.imageAlt || news.title} />
                 </figure>
                 <div className="card-body">
                     <p className="text-red-600 font-semibold">{news.category}</p>

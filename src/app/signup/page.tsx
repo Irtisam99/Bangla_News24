@@ -58,7 +58,7 @@ const SignUpPage = () => {
                     <button type='submit' className="btn bg-red-700 text-white mt-4">সাইন আপ করুন</button>
                 </fieldset>
             </form>
-            <button className="btn bg-blue-500 text-white mt-4 w-md" onClick={handleGoogleSignIn}>Sign In With Google</button>
+            <button onClick={handleGoogleSignIn} className="btn bg-blue-500 text-white mt-4 w-md">Sign In With Google</button>
             <button className="btn bg-blue-500 text-white mt-4 w-md" onClick={handleGithubSignIn}>Sign In With Github</button>
 
         </div>
