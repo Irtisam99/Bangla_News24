@@ -6,11 +6,11 @@ import { ReactEventHandler } from "react";
 
 const SignUpPage = () => {
 
-    const onSubmit = async (e:React.SubmitEvent<HTMLElement>) => {
+    const onSubmit = async (e: React.SubmitEvent<HTMLElement>) => {
         e.preventDefault()
 
         const formData = new FormData(e.target)
-        const user = Object.fromEntries(formData.entries()) as {name:string,email:string,image:string,password:string}
+        const user = Object.fromEntries(formData.entries()) as { name: string, email: string, image: string, password: string }
 
         const { data, error } = await authClient.signUp.email({
             ...user,
@@ -25,6 +25,17 @@ const SignUpPage = () => {
             console.log(error)
         }
 
+    }
+
+    const handleGoogleSignIn = async () => {
+        const data = await authClient.signIn.social({
+            provider: "google",
+        });
+    }
+    const handleGithubSignIn = async () => {
+        const data = await authClient.signIn.social({
+            provider: "github",
+        });
     }
     return (
         <div className='flex flex-col items-center mt-5'>
@@ -47,6 +58,9 @@ const SignUpPage = () => {
                     <button type='submit' className="btn bg-red-700 text-white mt-4">সাইন আপ করুন</button>
                 </fieldset>
             </form>
+            <button className="btn bg-blue-500 text-white mt-4 w-md" onClick={handleGoogleSignIn}>Sign In With Google</button>
+            <button className="btn bg-blue-500 text-white mt-4 w-md" onClick={handleGithubSignIn}>Sign In With Github</button>
+
         </div>
     );
 };
