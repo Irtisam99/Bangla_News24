@@ -3,6 +3,7 @@ import { Noto_Serif_Bengali } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/Header";
 import Marquee from "@/components/Marquee";
+import { Suspense } from "react";
 
 const notoSerifBengali = Noto_Serif_Bengali({
   subsets: ["latin", "bengali"],
@@ -22,9 +23,12 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       className={`${notoSerifBengali.className} h-full antialiased`}
     >
       <body className="min-h-full">
-        <Header></Header>
-        <Marquee></Marquee>
-
+        <Suspense fallback={<div className="h-20" />}>
+          <Header />
+        </Suspense>
+        <Suspense fallback={<div className="h-8" />}>
+          <Marquee />
+        </Suspense>
         <main className="container mx-auto">
           {children}
         </main>

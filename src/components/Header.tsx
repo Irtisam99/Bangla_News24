@@ -2,11 +2,10 @@ import Image from 'next/image';
 import React from 'react';
 import Navlink from './Navlink';
 import UserInfo from './UserInfo';
+import BanglaDate from './BanglaData';
 
 const Header = () => {
-    const date = new Date().toLocaleDateString('bn-BD', {
-        dateStyle: 'full'
-    })
+
 
     return (
         <header className='relative container mx-auto '>
@@ -15,7 +14,7 @@ const Header = () => {
 
                 <div className='flex flex-col items-center sm:items-start'>
                     <span className='text-2xl font-bold text-red-700'>Bangla News 24</span>
-                    <span className='text-xs text-neutral-500'>{date}</span>
+                    <span className='text-xs text-neutral-500'><BanglaDate></BanglaDate></span>
                 </div>
             </div>
 

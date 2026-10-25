@@ -2,13 +2,17 @@
 
 import { authClient } from "@/lib/auth-client";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 
 const UserInfo = () => {
     const { data: session } = authClient.useSession()
     const user = session?.user
+    const router=useRouter()
 
     const handleSignOut = async () => {
         await authClient.signOut();
+        router.push('/')
+        router.refresh()
     }
 
     return (
@@ -26,7 +30,7 @@ const UserInfo = () => {
                     </Link>
                     <h2>{user?.name}</h2>
 
-                    <Link href={'/'}><button onClick={handleSignOut} className="btn btn-error btn-xs">Sign Out</button></Link>
+                    <button onClick={handleSignOut} className="btn btn-error btn-xs">Sign Out</button>
 
                 </div> : <div>
 
