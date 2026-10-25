@@ -26,7 +26,7 @@ const UserInfo = () => {
                     </Link>
                     <h2>{user?.name}</h2>
 
-                    <button onClick={handleSignOut} className="btn btn-error btn-xs">Sign Out</button>
+                    <Link href={'/'}><button onClick={handleSignOut} className="btn btn-error btn-xs">Sign Out</button></Link>
 
                 </div> : <div>
 
